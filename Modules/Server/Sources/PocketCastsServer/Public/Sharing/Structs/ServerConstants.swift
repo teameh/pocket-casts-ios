@@ -14,16 +14,16 @@ public enum ServerConstants {
             production() ? "https://cache.pocketcasts.com/" : "https://podcast-api.pocketcasts.net/"
         }
 
-        public static func sharing() -> String {
-            production() ? "https://sharing.pocketcasts.com/" : "https://sharing.pocketcasts.net/"
+        public static func image() -> String {
+            production() ? "https://static.pocketcasts.com/" : "https://static.pocketcasts.net/"
         }
 
         public static func discover() -> String {
             production() ? "https://static.pocketcasts.com/discover/" : "https://static.pocketcasts.net/discover/"
         }
 
-        public static func image() -> String {
-            production() ? "https://static.pocketcasts.com/" : "https://static.pocketcasts.net/"
+        public static func sharing() -> String {
+            production() ? "https://sharing.pocketcasts.com/" : "https://sharing.pocketcasts.net/"
         }
 
         public static func files() -> String {
