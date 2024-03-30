@@ -191,6 +191,15 @@
         }
       },
       {
+        "package": "MountebankSwift",
+        "repositoryURL": "https://github.com/MountebankSwift/MountebankSwift",
+        "state": {
+          "branch": "recreatable",
+          "revision": "d92b36fbda4804e35e4c0076ad878a3fdb15222b",
+          "version": null
+        }
+      },
+      {
         "package": "nanopb",
         "repositoryURL": "https://github.com/firebase/nanopb.git",
         "state": {

@@ -1,25 +1,40 @@
 import Foundation
 
+private func urlForUITestingServer(_ server: String) -> String? {
+    ProcessInfo.processInfo.environment["uitesting.server.\(server)"]
+}
+
 public enum ServerConstants {
     public enum Urls {
         public static func main() -> String {
-            production() ? "https://refresh.pocketcasts.com/" : "https://refresh.pocketcasts.net/"
+            production()
+                ? "https://refresh.pocketcasts.com/"
+                : urlForUITestingServer("refresh") ?? "https://refresh.pocketcasts.net/"
         }
 
         public static func api() -> String {
-            production() ? "https://api.pocketcasts.com/" : "https://api.pocketcasts.net/"
+            production()
+                ? "https://api.pocketcasts.com/"
+                : urlForUITestingServer("api") ?? "https://api.pocketcasts.net/"
         }
 
         public static func cache() -> String {
-            production() ? "https://cache.pocketcasts.com/" : "https://podcast-api.pocketcasts.net/"
+            production()
+                ? "https://cache.pocketcasts.com/"
+                : urlForUITestingServer("cache") ?? "https://podcast-api.pocketcasts.net/"
         }
 
         public static func image() -> String {
-            production() ? "https://static.pocketcasts.com/" : "https://static.pocketcasts.net/"
+            production()
+                ? "https://static.pocketcasts.com/"
+                : urlForUITestingServer("static") ?? "https://static.pocketcasts.net/"
         }
 
         public static func discover() -> String {
-            production() ? "https://static.pocketcasts.com/discover/" : "https://static.pocketcasts.net/discover/"
+            let url = production()
+                ? "https://static.pocketcasts.com/"
+                : urlForUITestingServer("static") ?? "https://static.pocketcasts.net"
+            return url + "discover/"
         }
 
         public static func sharing() -> String {
@@ -49,8 +64,13 @@ public enum ServerConstants {
         public static let appStoreReview = "https://itunes.apple.com/app/id414834813?action=write-review"
     }
 
+
+    private static func uiTesting() -> Bool {
+        ProcessInfo.processInfo.arguments.contains("-UITesting")
+    }
+
     private static func production() -> Bool {
-        ServerConfig.shared.syncDelegate?.production() ?? true
+        !uiTesting() && ServerConfig.shared.syncDelegate?.production() ?? true
     }
 
     public enum HttpConstants {
