@@ -12,14 +12,27 @@ enum Server: String, CaseIterable {
     var launchEnvironmentKey: String { "uitesting.server.\(rawValue)" }
 }
 
-@MainActor
 final class UITests: XCTestCase {
     private var mountebank: Mountebank! = Mountebank(host: .localhost)
     private var imposters: [Imposter] = []
 
-    override func setUp() async throws {
-        continueAfterFailure = false
-        try await mountebank.testConnection()
+    override func tearDown() async throws {
+        for imposter in imposters {
+            if let port = imposter.port {
+                try await mountebank.deleteImposter(port: port)
+            }
+        }
+    }
+
+    func testSubscribeToPodcast() async throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        // Select podcast & subscribe
+        app.buttons["SHOW ALL"].firstMatch.tap()
+        app.swipeUp(velocity: .slow)
+        app.staticTexts["Serial"].tap()
+        app.buttons["Subscribe"].tap()
     }
 
     func setupImposters() async throws -> [String: String] {
@@ -102,5 +115,24 @@ final class UITests: XCTestCase {
         for imposter in imposters {
             imposter.writeStubsToDisk()
         }
+    }
+
+    func setupImposter() async throws {
+        let imposter = Imposter(
+            port: 12345,
+            networkProtocol: .http(),
+            stubs: [
+                Stub(
+                    response: Is(statusCode: 200, body: [
+                        "foo": "bar"
+                    ]),
+                    predicate: .equalsRequest(method: .get, path: "/trending.json")
+                ),
+                Stub(
+                    response: Is(statusCode: 200, body: ["foo": "bar"]),
+                    predicate: .equalsRequest(method: .get, path: "/trending.json")
+                )
+            ]
+        )
     }
 }

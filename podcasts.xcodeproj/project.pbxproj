@@ -1403,6 +1403,7 @@
 		BDFB53C82362A2570001806E /* NowPlayingPlayerItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDFB53C62362A2570001806E /* NowPlayingPlayerItemViewController.xib */; };
 		BDFB53CB2362B9080001806E /* UpNextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFB53C92362B9080001806E /* UpNextViewController.swift */; };
 		BDFB53CC2362B9080001806E /* UpNextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDFB53CA2362B9080001806E /* UpNextViewController.xib */; };
+		BDFCA98A2BBE8347009FDE51 /* Examples.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFCA9892BBE8347009FDE51 /* Examples.swift */; };
 		BDFF77301C9929660086282A /* NavigationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFF772F1C9929660086282A /* NavigationProtocol.swift */; };
 		BDFFC9AF2148A1460026D875 /* PCRoutePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFFC9AE2148A1460026D875 /* PCRoutePickerView.swift */; };
 		BDFFC9B12148E87E0026D875 /* VideoViewController+Seek.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFFC9B02148E87E0026D875 /* VideoViewController+Seek.swift */; };
@@ -3202,6 +3203,7 @@
 		BDFB53C62362A2570001806E /* NowPlayingPlayerItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NowPlayingPlayerItemViewController.xib; sourceTree = "<group>"; };
 		BDFB53C92362B9080001806E /* UpNextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpNextViewController.swift; sourceTree = "<group>"; };
 		BDFB53CA2362B9080001806E /* UpNextViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpNextViewController.xib; sourceTree = "<group>"; };
+		BDFCA9892BBE8347009FDE51 /* Examples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Examples.swift; sourceTree = "<group>"; };
 		BDFF772F1C9929660086282A /* NavigationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationProtocol.swift; sourceTree = "<group>"; };
 		BDFFC9AE2148A1460026D875 /* PCRoutePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCRoutePickerView.swift; sourceTree = "<group>"; };
 		BDFFC9B02148E87E0026D875 /* VideoViewController+Seek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoViewController+Seek.swift"; sourceTree = "<group>"; };
@@ -5455,6 +5457,7 @@
 		BD78B5902B7CE6E4004AE2B2 /* PocketCastsUITests */ = {
 			isa = PBXGroup;
 			children = (
+				BDFCA9892BBE8347009FDE51 /* Examples.swift */,
 				BD2AA4382BA39E0900EAAC7E /* Imposters */,
 				BD78B5912B7CE729004AE2B2 /* UITests.swift */,
 			);
@@ -8653,6 +8656,7 @@
 				BDF178242BB82DB800138AB4 /* testRegisterFlow.api.swift in Sources */,
 				46316CF227A85F3000458BA4 /* XCUIElement+Extensions.swift in Sources */,
 				BDF178232BB82DB800138AB4 /* testRegisterFlow.cache.swift in Sources */,
+				BDFCA98A2BBE8347009FDE51 /* Examples.swift in Sources */,
 				46673A3127A9B67E005F9EF5 /* iPad_GenerateScreenshots.swift in Sources */,
 				4694FA652799C80300E9CF70 /* iPhone_GenerateScreenshots.swift in Sources */,
 				4694FA6D2799C85500E9CF70 /* SnapshotHelper.swift in Sources */,
